@@ -12,13 +12,19 @@ button.addEventListener("click", async () => {
     return;
   }
   console.log(result);
-  const prompt = 'Can you explain this code for me? ' + result;
+  const prompt = 'Explain this code: ' + result;
 
   // async function callChatGPT(prompt) {
-  //   const response = await fetchChatGPTResponse(prompt);
-  //   return response;
-  //
+    //   const response = await fetchChatGPTResponse(prompt);
+    //   return response;
+    //
   const preface = document.createElement('p');
+  if (result.trim() === '') {
+    preface.classList.add('error');
+    preface.innerHTML = 'Ya need to highlight some code &#129313;';
+    document.body.append(preface);
+    return;
+  }
   try {
     const response = await fetchChatGPTResponse(prompt);
     preface.classList.add('preface');
@@ -55,8 +61,8 @@ async function fetchChatGPTResponse(prompt) {
       body: JSON.stringify({
         model: 'text-davinci-003',
         prompt: prompt,
-        temperature: .1,
-        max_tokens: 1000
+        temperature: 0,
+        max_tokens: 100
       })
     });
   } catch (e) {

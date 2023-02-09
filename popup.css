@@ -21,7 +21,6 @@ body {
   overflow: scroll;
   line-height: 2.5rem;
   color:rgb(87, 77, 77);
-
 }
 
 .preface {
@@ -47,11 +46,12 @@ button {
   margin-top: 2rem;
   cursor: pointer;
   background-color: rgb(255, 103, 103);
-  transition: background-color .2s ease, box-shadow .08s ease;
+  transition: background-color .2s ease, box-shadow .06s ease;
   border: none;
   border-radius: .3rem;
   color: white;
   font-weight: 200;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.19), 0 2px 2px rgba(0, 0, 0, 0.23);
 }
 
 button:hover {
@@ -63,7 +63,8 @@ button:active, button:hover, button {
 }
 
 button:active {
-   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.19),
+    0 2px 2px rgba(0, 0, 0, 0.23), inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 
 
