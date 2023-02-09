@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "x",
+  "description": "x",
+  "version": "1.0",
+  "icons": {
+
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+
+  },
+  "permissions": [
+    "scripting",
+    "activeTab"
+  ]
+}
