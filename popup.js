@@ -1,6 +1,3 @@
-
-
-
 const button = document.querySelector('button');
 const loader = document.querySelector('.loader');
 button.addEventListener("click", async () => {
@@ -147,6 +144,3 @@ async function fetchChatGPTResponse(prompt) {
 // // chrome.action.onClicked.addListener(async (tab) => {
 
 // // });
-
-// const APIKey = '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';
-
