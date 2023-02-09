@@ -20,6 +20,7 @@ body {
   justify-content: center;
   overflow: scroll;
   line-height: 2.5rem;
+  color:rgb(87, 77, 77);
 }
 
 .preface {
@@ -27,11 +28,20 @@ body {
   font-weight: 400;
 }
 
+.error {
+  color: rgba(255, 103, 103, 0.799);
+  font-weight: 400;
+}
+
+.preface, .error {
+  margin-top: 2rem;
+}
+
 button {
   font-family: 'Poppins', sans-serif;
   padding: .5rem 1rem;
   width: 10rem;
-  margin: 2rem 0;
+  margin-top: 2rem;
   cursor: pointer;
   background-color: rgb(255, 103, 103);
   transition: all .2s ease;
@@ -39,7 +49,6 @@ button {
   border-radius: .3rem;
   color: white;
   font-weight: 200;
-
 }
 
 button:hover {
@@ -52,4 +61,95 @@ button:active, button:hover, button {
 
 button:active {
    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+
+.loader {
+  margin-top: 2rem;
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  color: rgb(101, 88, 88);
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s spin linear infinite;
+}
+
+.loader:after {
+  color: #ff6767;
+  transform: rotateY(70deg);
+  animation-delay: .4s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}
+
+@keyframes rotateccw {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes spin {
+
+  0%,
+  100% {
+    box-shadow: .2em 0px 0 0px currentcolor;
+  }
+
+  12% {
+    box-shadow: .2em .2em 0 0 currentcolor;
+  }
+
+  25% {
+    box-shadow: 0 .2em 0 0px currentcolor;
+  }
+
+  37% {
+    box-shadow: -.2em .2em 0 0 currentcolor;
+  }
+
+  50% {
+    box-shadow: -.2em 0 0 0 currentcolor;
+  }
+
+  62% {
+    box-shadow: -.2em -.2em 0 0 currentcolor;
+  }
+
+  75% {
+    box-shadow: 0px -.2em 0 0 currentcolor;
+  }
+
+  87% {
+    box-shadow: .2em -.2em 0 0 currentcolor;
+  }
+}
+
+.loader.hidden {
+  display: none;
 }

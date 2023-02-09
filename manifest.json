@@ -1,10 +1,10 @@
 
 {
-  "name": "Action script injection demo",
+  "name": "Ask GPT",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
-    "default_title": "Click to show an alert",
+    "default_title": "Ask GPT",
     "default_popup": "popup.html"
   },
   "content_scripts": [
@@ -18,5 +18,11 @@
   ],
   "background": {
     "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "logo.png",
+    "32": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
   }
 }
