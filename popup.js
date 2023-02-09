@@ -22,7 +22,11 @@ button.addEventListener("click", async () => {
   //   return response;
   //
   const response = await fetchChatGPTResponse(prompt);
-  document.body.append('Chat GPT says: ' + response);
+  const preface = document.createElement('p');
+  preface.classList.add('preface');
+  preface.innerText = 'Chat GPT says: ';
+  document.body.append(preface);
+  document.body.append(response);
 });
 
 
@@ -39,16 +43,13 @@ async function fetchChatGPTResponse(prompt) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${'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'}`
+      'Authorization': `Bearer ${'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'}`
     },
     body: JSON.stringify({
       model: 'text-davinci-003',
       prompt: prompt,
       temperature: .1,
-      max_tokens: 150
-      // prompt: prompt,
-      // max_tokens: 2048,
-      // temperature: 0.1,
+      max_tokens: 1000
     })
   });
   const json = await response.json();
