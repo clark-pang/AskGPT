@@ -25,7 +25,7 @@ button.addEventListener("click", async () => {
   try {
     const response = await fetchChatGPTResponse(prompt);
     preface.classList.add('preface');
-    preface.innerText = 'Chat GPT says: ';
+    preface.innerText = 'GPT says... ';
     document.body.append(preface);
     document.body.append(response);
   } catch (e) {

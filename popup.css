@@ -21,11 +21,14 @@ body {
   overflow: scroll;
   line-height: 2.5rem;
   color:rgb(87, 77, 77);
+
 }
 
 .preface {
   align-self: flex-start;
-  font-weight: 400;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  font-style: italic;
 }
 
 .error {
@@ -44,7 +47,7 @@ button {
   margin-top: 2rem;
   cursor: pointer;
   background-color: rgb(255, 103, 103);
-  transition: all .2s ease;
+  transition: background-color .2s ease, box-shadow .08s ease;
   border: none;
   border-radius: .3rem;
   color: white;
