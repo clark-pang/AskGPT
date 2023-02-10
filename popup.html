@@ -17,10 +17,22 @@
 <body>
   <h3>Highlight code and Ask GPT to explain</h3>
 
-  <input type="range" min="200" max="600" value="200" class="slider">
+  <div class="container">
+
+    <small>Verbosity</small>
+    <input type="range" min="200" max="600" value="200" class="slider">
 
 
-  <small>Verbosity</small>
+
+    <label class="translate">Translate?</label>
+    <select name="languages" class="language-select">
+      <option value="no">No</option>
+      <option value="javascript">Javascript</option>
+      <option value="python">Python</option>
+      <option value="c">C</option>
+      <option value="java">Java</option>
+    </select>
+  </div>
   <button>Ask GPT</button>
 
   <span class="loader hidden"></span>

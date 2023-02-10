@@ -1,6 +1,15 @@
 const button = document.querySelector('button');
 const loader = document.querySelector('.loader');
 const slider = document.querySelector('.slider');
+const select = document.querySelector('.language-select');
+
+// select.addEventListener("change", e => {
+//   console.log('target val: ', e.target.value);
+//   const language = e.target.value;
+//   if (language !== 'no') {
+
+//   }
+// });
 button.addEventListener("click", async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   let result;
@@ -15,12 +24,20 @@ button.addEventListener("click", async () => {
   console.log(result);
   const tokenNum = Number(slider.value);
   console.log(tokenNum);
-  const prompt = `Explain this code in less than ${tokenNum} words: ` + result;
 
-  // async function callChatGPT(prompt) {
-    //   const response = await fetchChatGPTResponse(prompt);
-    //   return response;
-    //
+  //if value of select = off
+    //prompt assigned to explain this code in less than tokennum words
+  // if value of select = anything else
+    // prompt assigned to can you translate this code for me in ${selectLanguage}
+
+  let prompt = '';
+  const language = select.value;
+  console.log('language is: ', language);
+  if (language === 'no') {
+    prompt = `Explain this code in less than ${tokenNum} words: ` + result;
+  } else {
+    prompt = `Can you translate this code into ${language} for me in less than ${tokenNum} words: ` + result;
+  }
 
   const preface = document.createElement('p');
   if (result.trim() === '') {

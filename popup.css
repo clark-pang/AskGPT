@@ -4,6 +4,7 @@ body, html, *, body * {
   box-sizing: border-box;
   flex-direction: column;
   align-items: center;
+
 }
 
 html {
@@ -33,7 +34,7 @@ input[type='range']:-moz-focusring {
 }
 
 .slider {
-  margin-top: 2rem;
+
   outline: none;
   border: solid 1px rgb(157, 139, 139);
   border-radius: 5px;
@@ -41,6 +42,12 @@ input[type='range']:-moz-focusring {
   height: 5px;
   -webkit-appearance: none;
   position: relative;
+}
+
+
+
+select, select:focus, select:active {
+  outline: none;
 }
 
 .slider::-webkit-slider-thumb {
@@ -58,7 +65,7 @@ input[type='range']:-moz-focusring {
   background: rgb(255, 133, 133);
 }
 
-small {
+small, .translate{
   font-style: italic;
   font-weight: 400;
   font-size: 1.3rem;
@@ -133,6 +140,13 @@ button:active {
   width: 48px;
   height: 48px;
   color: rgb(101, 88, 88);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 10rem;
 }
 
 .loader:before,
