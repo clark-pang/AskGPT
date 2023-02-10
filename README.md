@@ -2,8 +2,8 @@ Ask GPT is a Chrome extension that allows you to select any code snippet you see
 
 User must generate their own OpenAI API key and declare it as API_KEY in popup.js or their env.
 
-Developed with love by:
+Developed with love by: <br /> <br />
 
-Felipe Ocampo https://github.com/felipeaocampo \n
-Ryan Motamen https://github.com/ryanmotamen \n
-Clark Pang https://github.com/clark-pang \n
+Felipe Ocampo https://github.com/felipeaocampo <br />
+Ryan Motamen https://github.com/ryanmotamen <br />
+Clark Pang https://github.com/clark-pang <br />
