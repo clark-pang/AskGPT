@@ -8,17 +8,13 @@
     "default_popup": "popup.html"
   },
   "content_scripts": [
-    { "js": ["content.js"],
-    "matches": ["<all_urls>"]
-     }
+    {"js": ["content.js"],
+    "matches": ["<all_urls>"]}
   ],
   "permissions": [
     "activeTab",
     "scripting"
   ],
-  "background": {
-    "service_worker": "background.js"
-  },
   "icons": {
     "16": "logo.png",
     "32": "logo.png",

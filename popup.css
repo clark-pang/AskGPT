@@ -1,18 +1,18 @@
+/* resets */
 body, html, *, body * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   flex-direction: column;
   align-items: center;
-
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; /* reset base font to 10px or user-equiv */
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1.6rem;  /* rest body font to 16px or user-equiv, but now 1rem === 10px*/
   font-weight: 200;
   font-family: 'Poppins', sans-serif;
   padding: 3rem;
@@ -24,17 +24,23 @@ body {
   color:rgb(87, 77, 77);
 }
 
+/* container for user input controls */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 10rem;
+}
+
 input[type='range'],
 input[type='range']:focus,
 input[type='range']:active,
 input[type='range']::-moz-focus-inner,
 input[type='range']:-moz-focusring {
-
   outline: none;
 }
 
 .slider {
-
   outline: none;
   border: solid 1px rgb(157, 139, 139);
   border-radius: 5px;
@@ -44,15 +50,17 @@ input[type='range']:-moz-focusring {
   position: relative;
 }
 
-
-
-select, select:focus, select:active {
-  outline: none;
+/* Verbosity and translate labels */
+small, .translate{
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.3rem;
 }
 
+/* override html range-slider native appearance, customize for our color scheme */
 .slider::-webkit-slider-thumb {
-  width: 14px;
-  height: 14px;
+  width: 1.4rem;
+  height: 1.4rem;
   border-radius: 50%;
   -webkit-appearance: none;
   cursor: pointer;
@@ -65,28 +73,13 @@ select, select:focus, select:active {
   background: rgb(255, 133, 133);
 }
 
-small, .translate{
-  font-style: italic;
-  font-weight: 400;
-  font-size: 1.3rem;
-}
-
-
-/* .slider, .slider:hover, .slider:active, .slider:focus {
+select,
+select:focus,
+select:active {
   outline: none;
-  background-color: none;
-  background: red;
 }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  background: #04AA6D;
-  cursor: pointer;
-} */
-
+/* gpt says ... */
 .preface {
   align-self: flex-start;
   font-weight: 500;
@@ -94,6 +87,7 @@ small, .translate{
   font-style: italic;
 }
 
+/* error messages */
 .error {
   color: rgba(255, 103, 103, 0.799);
   font-weight: 400;
@@ -131,7 +125,7 @@ button:active {
     0 2px 2px rgba(0, 0, 0, 0.23), inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 
-
+/* loading spinner */
 .loader {
   margin-top: 2rem;
   transform: rotateZ(45deg);
@@ -140,13 +134,6 @@ button:active {
   width: 48px;
   height: 48px;
   color: rgb(101, 88, 88);
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 10rem;
 }
 
 .loader:before,

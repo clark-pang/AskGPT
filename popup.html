@@ -1,46 +1,29 @@
-<!-- popup.html -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="stylesheet" href="popup.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet">
-
-</head>
-
-
-
-<body>
-  <h3>Highlight code and Ask GPT to explain</h3>
-
-  <div class="container">
-
-    <small>Verbosity</small>
-    <input type="range" min="100" max="450" value="100" class="slider">
-
-
-
-    <label class="translate">Translate?</label>
-    <select name="languages" class="language-select">
-      <option value="no">No</option>
-      <option value="javascript">Javascript</option>
-      <option value="python">Python</option>
-      <option value="c">C</option>
-      <option value="java">Java</option>
-    </select>
-  </div>
-  <button>Ask GPT</button>
-
-  <span class="loader hidden"></span>
-
-    <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam in repellat incidunt, quibusdam harum expedita odit molestiae eveniet velit maiores! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut consequatur, tenetur debitis sit cupiditate magnam eaque maxime quam asperiores placeat dolorum doloremque, accusantium, necessitatibus omnis id! Vel mollitia beatae maiores quos impedit iure velit cum, dicta reprehenderit rem distinctio quibusdam earum, numquam exercitationem perferendis voluptates unde deserunt fuga aut assumenda quisquam. Illum, dolor mollitia quo animi nulla culpa. Accusamus reprehenderit fuga, placeat recusandae hic laboriosam provident, unde eligendi consequuntur, mollitia impedit ullam voluptates tenetur iure est labore suscipit illum qui pariatur? Unde nulla architecto optio tenetur doloremque mollitia eligendi eveniet similique nobis blanditiis ipsum necessitatibus, earum distinctio aperiam? Aliquam, alias! -->
-
-</body>
-
-<script src="env.js" defer></script>
-<script src="popup.js" defer></script>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <script src="env.js" defer></script>
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <h3>Highlight code and Ask GPT to explain</h3>
+    <div class="container">
+      <small>Verbosity</small>
+      <input type="range" min="100" max="450" value="100" class="slider">
+      <label class="translate">Translate?</label>
+      <select name="languages" class="language-select">
+        <option value="no">No</option>
+        <option value="javascript">Javascript</option>
+        <option value="python">Python</option>
+        <option value="c">C</option>
+        <option value="java">Java</option>
+      </select>
+    </div>
+    <button>Ask GPT</button>
+    <span class="loader hidden"></span>
+  </body>
 </html>

@@ -1,18 +1,15 @@
+// script is deferred in html
+
+// QUERIES
 const button = document.querySelector('button');
 const loader = document.querySelector('.loader');
 const slider = document.querySelector('.slider');
 const select = document.querySelector('.language-select');
 
-// select.addEventListener("change", e => {
-//   console.log('target val: ', e.target.value);
-//   const language = e.target.value;
-//   if (language !== 'no') {
-
-//   }
-// });
 button.addEventListener("click", async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   let result;
+  // get selected text from active tab
   try {
     [{ result }] = await chrome.scripting.executeScript({
       target: { tabId: tab.id },
@@ -21,18 +18,14 @@ button.addEventListener("click", async () => {
   } catch (e) {
     return;
   }
-  console.log(result);
   const tokenNum = Number(slider.value);
-  console.log(tokenNum);
 
-  //if value of select = off
-    //prompt assigned to explain this code in less than tokennum words
-  // if value of select = anything else
-    // prompt assigned to can you translate this code for me in ${selectLanguage}
-
+  //if value of select = no
+  //  prompt assigned to explain this code in less than tokennum words
+  //if value of select = anything else
+  //  prompt assigned to can you translate this code for me in ${selectLanguage}
   let prompt = '';
   const language = select.value;
-  console.log('language is: ', language);
   if (language === 'no') {
     prompt = `Explain this code in less than ${tokenNum} words: ` + result;
   } else {
@@ -59,25 +52,16 @@ button.addEventListener("click", async () => {
   }
 });
 
-
-
-// curl https://api.openai.com/v1/completions \
-// -H "Content-Type: application/json" \
-// -H "Authorization: Bearer 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" \
-// -d '{"model": "text-davinci-003", "prompt": "Say this is a test", "temperature": 0, "max_tokens": 7}'
 async function fetchChatGPTResponse(prompt, tokenNum) {
   // start loading spinner
   loader.classList.toggle('hidden');
-
-  //https://api.openai.com/v1/engines/davinci/jobs
-  //https://api.openai.com/v1/models/text-davinci-003
   let response;
   try {
     response = await fetch('https://api.openai.com/v1/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
+        'Authorization': `Bearer ${API_KEY}` // declare your own API_KEY, either in env file or this one
       },
       body: JSON.stringify({
         model: 'text-davinci-003',
@@ -87,12 +71,10 @@ async function fetchChatGPTResponse(prompt, tokenNum) {
       })
     });
   } catch (e) {
-    console.log('error: ', e);
     return e;
   }
-  console.log('response is: ', response);
+
   const json = await response.json();
-  console.log('json: ', json);
   //end loading spinner
   loader.classList.toggle('hidden');
   return json.choices[0].text;
