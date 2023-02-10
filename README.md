@@ -4,6 +4,6 @@ User must generate their own OpenAI API key and declare it as API_KEY in popup.j
 
 Developed with love by:
 
-Felipe Ocampo https://github.com/felipeaocampo
-Ryan Motamen https://github.com/ryanmotamen
-Clark Pang https://github.com/clark-pang
+Felipe Ocampo https://github.com/felipeaocampo \n
+Ryan Motamen https://github.com/ryanmotamen \n
+Clark Pang https://github.com/clark-pang \n
