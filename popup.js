@@ -1,5 +1,6 @@
 const button = document.querySelector('button');
 const loader = document.querySelector('.loader');
+const slider = document.querySelector('.slider');
 button.addEventListener("click", async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   let result;
@@ -12,12 +13,15 @@ button.addEventListener("click", async () => {
     return;
   }
   console.log(result);
-  const prompt = 'Explain this code: ' + result;
+  const tokenNum = Number(slider.value);
+  console.log(tokenNum);
+  const prompt = `Explain this code in less than ${tokenNum} words: ` + result;
 
   // async function callChatGPT(prompt) {
     //   const response = await fetchChatGPTResponse(prompt);
     //   return response;
     //
+
   const preface = document.createElement('p');
   if (result.trim() === '') {
     preface.classList.add('error');
@@ -26,7 +30,7 @@ button.addEventListener("click", async () => {
     return;
   }
   try {
-    const response = await fetchChatGPTResponse(prompt);
+    const response = await fetchChatGPTResponse(prompt, tokenNum);
     preface.classList.add('preface');
     preface.innerText = 'GPT says... ';
     document.body.append(preface);
@@ -44,7 +48,7 @@ button.addEventListener("click", async () => {
 // -H "Content-Type: application/json" \
 // -H "Authorization: Bearer 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" \
 // -d '{"model": "text-davinci-003", "prompt": "Say this is a test", "temperature": 0, "max_tokens": 7}'
-async function fetchChatGPTResponse(prompt) {
+async function fetchChatGPTResponse(prompt, tokenNum) {
   // start loading spinner
   loader.classList.toggle('hidden');
 
@@ -62,7 +66,7 @@ async function fetchChatGPTResponse(prompt) {
         model: 'text-davinci-003',
         prompt: prompt,
         temperature: 0,
-        max_tokens: 100
+        max_tokens: tokenNum
       })
     });
   } catch (e) {
@@ -78,75 +82,5 @@ async function fetchChatGPTResponse(prompt) {
 }
 
 
-// async function fetchChatGPTResponse(prompt) {
-//   const response = await fetch(`https://api.openai.com/v1/engines/text-davinci-002/jobs`, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Authorization': `Bearer ${APIKey}`
-//     },
-//     body: JSON.stringify({
-//       prompt: prompt,
-//       max_tokens: 100,
-//       temperature: 0.5,
-//     })
-//   });
-//   const json = await response.json();
-//   return json.choices[0].text;
-// }
 
 
-
-
-
-
-
-
-// async function getCurrentTab() {
-//   let queryOptions = { active: true, lastFocusedWindow: true };
-//   // `tab` will either be a `tabs.Tab` instance or `undefined`.
-//   let [tab] = await chrome.tabs.query(queryOptions);
-//   console.log(tab);
-// }
-// console.log("Success");
-
-// ChatGPT example
-// chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-//   var currentTab = tabs[0];
-//   var tabId = currentTab.id;
-
-//   chrome.tabs.executeScript(tabId, {
-//     code: 'document.body.innerHTML'
-//   }, function(result) {
-//     console.log(result[0]);
-//   });
-// });
-
-// function getSelectedText() {
-//   let selectedText = '';
-
-// //   // window.getSelection
-// //   if (window.getSelection) {
-// //       selectedText = window.getSelection();
-// //   }
-
-//     // document.getSelection
-//     // if (document.getSelection) {
-//     //     selectedText = document.getSelection();
-//     // }
-//     console.log('selectedText is: ', document.getSelection());
-//   // document.selection
-// //   else if (document.selection) {
-// //       selectedText = document.selection.createRange().text;
-// //   } else return;
-// //   // To write the selected text into the textarea
-// //   document.testform.selectedtext.value = selectedText;
-// }
-// getSelectedText();
-
-// // chrome.browserAction.onClicked.addListener(function (tab) { alert('icon clicked') });
-
-
-// // chrome.action.onClicked.addListener(async (tab) => {
-
-// // });

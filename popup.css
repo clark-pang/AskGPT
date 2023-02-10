@@ -23,6 +23,63 @@ body {
   color:rgb(87, 77, 77);
 }
 
+input[type='range'],
+input[type='range']:focus,
+input[type='range']:active,
+input[type='range']::-moz-focus-inner,
+input[type='range']:-moz-focusring {
+
+  outline: none;
+}
+
+.slider {
+  margin-top: 2rem;
+  outline: none;
+  border: solid 1px rgb(157, 139, 139);
+  border-radius: 5px;
+  outline: none;
+  height: 5px;
+  -webkit-appearance: none;
+  position: relative;
+}
+
+.slider::-webkit-slider-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background: rgb(255, 103, 103);
+  top: 50%;
+  transform: translateY(-35%);
+  transition: background .15s ease;
+}
+.slider::-webkit-slider-thumb:hover {
+  background: rgb(255, 133, 133);
+}
+
+small {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+
+/* .slider, .slider:hover, .slider:active, .slider:focus {
+  outline: none;
+  background-color: none;
+  background: red;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+} */
+
 .preface {
   align-self: flex-start;
   font-weight: 500;
@@ -157,3 +214,5 @@ button:active {
 .loader.hidden {
   display: none;
 }
+
+
